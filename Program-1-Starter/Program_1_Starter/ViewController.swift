@@ -169,27 +169,29 @@ class ViewController: UIViewController {
         changeColor()
         
         var color = colorNumber
-        var prev = ((colorNumber - 1) + myColors.fetchColorCount()) % myColors.fetchColorCount()
-        var next = (colorNumber + 1) % myColors.fetchColorCount()
+        //var prev = ((colorNumber - 1) + myColors.fetchColorCount()) % myColors.fetchColorCount()
+        //var next = (colorNumber + 1) % myColors.fetchColorCount()
+        
+        var colorName:String = myColors.fetchColorName(myColors.fetchHexValue(myColors.fetchColorFromIndex(colorNumber)))
         
         if(buttonAnswer == 0){
             btnAnswer1OUTLET.setTitle(myColors.fetchColorFromIndex(color), forState: UIControlState.Normal)
-            btnAnswer2OUTLET.setTitle(myColors.fetchColorFromIndex(prev), forState: UIControlState.Normal)
-            btnAnswer3OUTLET.setTitle(myColors.fetchColorFromIndex(next), forState: UIControlState.Normal)
+            btnAnswer2OUTLET.setTitle(myColors.findSimilarColor(colorName, upperLower: "upper"), forState: UIControlState.Normal)
+            btnAnswer3OUTLET.setTitle(myColors.findSimilarColor(colorName, upperLower: "lower"), forState: UIControlState.Normal)
             button1Correct = true;
             
         }
         
         if(buttonAnswer == 1){
-            btnAnswer1OUTLET.setTitle(myColors.fetchColorFromIndex(prev), forState: UIControlState.Normal)
+            btnAnswer1OUTLET.setTitle(myColors.findSimilarColor(colorName, upperLower: "lower"), forState: UIControlState.Normal)
             btnAnswer2OUTLET.setTitle(myColors.fetchColorFromIndex(color), forState: UIControlState.Normal)
-            btnAnswer3OUTLET.setTitle(myColors.fetchColorFromIndex(next), forState: UIControlState.Normal)
+            btnAnswer3OUTLET.setTitle(myColors.findSimilarColor(colorName, upperLower: "upper"), forState: UIControlState.Normal)
             button2Correct = true
         }
         
         if(buttonAnswer == 2){
-            btnAnswer1OUTLET.setTitle(myColors.fetchColorFromIndex(next), forState: UIControlState.Normal)
-            btnAnswer2OUTLET.setTitle(myColors.fetchColorFromIndex(prev), forState: UIControlState.Normal)
+            btnAnswer1OUTLET.setTitle(myColors.findSimilarColor(colorName, upperLower: "upper"), forState: UIControlState.Normal)
+            btnAnswer2OUTLET.setTitle(myColors.findSimilarColor(colorName, upperLower: "lower"), forState: UIControlState.Normal)
             btnAnswer3OUTLET.setTitle(myColors.fetchColorFromIndex(color), forState: UIControlState.Normal)
             button3Correct = true
         }

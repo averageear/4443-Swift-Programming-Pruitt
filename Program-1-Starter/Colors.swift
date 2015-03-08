@@ -216,6 +216,71 @@ class Colors {
     
     /********************************************************************************************
     * Function:
+    *    findSimilarColor
+    * Params:
+    *    color:UIColor => UIColor for red, green, blue breakdown
+    * Returns:
+    *    String
+    ********************************************************************************************/
+
+    func findSimilarColor (colorName:String, upperLower:String) -> String {
+        var bestMatch:String = colorsTupleArray[0].colorName
+        var randColor:ColorTuple = fetchRandomColor()
+        
+        var distance:Double = findColorDifference(colorName, color2: colorsTupleArray[0].colorName)
+        
+        var color:RGB = fetchRGB(colorName)
+        
+        for var i = 0; i < colorsTupleArray.count; i++ {
+            var prevDistance:Double = distance
+            distance = findColorDifference(colorName, color2: colorsTupleArray[i].colorName)
+            var ctaR:Double = colorsTupleArray[i].rgb.R;
+            var ctaG:Double = colorsTupleArray[i].rgb.G;
+            var ctaB:Double = colorsTupleArray[i].rgb.B;
+            
+            if  (upperLower == "lower")
+                && (ctaR < color.R) && (color.R > ctaR - distance)
+                && (ctaR < color.G) && (color.G > ctaG - distance)
+                && (ctaR < color.B) && (color.B > ctaB - distance){
+                 
+                if prevDistance > distance {
+                    bestMatch = colorsTupleArray[i].colorName
+                }
+                    
+            }else if (upperLower == "upper")
+                && (ctaR > color.R) && (color.R < ctaR + distance)
+                && (ctaR > color.G) && (color.G < ctaG + distance)
+                && (ctaR > color.B) && (color.B < ctaR + distance){
+                    
+                if prevDistance > distance {
+                    bestMatch = colorsTupleArray[i].colorName
+                }
+                    
+            }
+        }
+        
+        return bestMatch
+    }
+    
+    func findColorDifference (color1:String, color2:String) ->Double {
+        var distance:Double
+        var e1:RGB = fetchRGB(color1)
+        var e2:RGB = fetchRGB(color2)
+        
+        var rDiff:Double = (e2.R-e1.R) * 0.3
+        var gDiff:Double = (e2.G-e1.G) * 0.59
+        var bDiff:Double = (e2.B-e1.B) * 0.11
+        
+        rDiff = rDiff*rDiff
+        gDiff = gDiff*gDiff
+        bDiff = bDiff*bDiff
+        
+        return rDiff + gDiff + bDiff
+        
+    }
+    
+    /********************************************************************************************
+    * Function:
     *    printColors - Debug helper function
     * Params:
     *    Void
