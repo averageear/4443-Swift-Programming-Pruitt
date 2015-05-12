@@ -43,8 +43,9 @@ class LocationDetailsViewController: UITableViewController {
         // 3
         var error: NSError?
         if !managedObjectContext.save(&error) {
-            println("Error: \(error)")
-            abort() }
+            fatalCoreDataError(error)
+            return
+        }
         
         afterDelay(0.6) {
             self.dismissViewControllerAnimated(true, completion: nil)
@@ -70,7 +71,6 @@ class LocationDetailsViewController: UITableViewController {
             addressLabel.text = "No Address Found"
         }
         
-        //dateLabel.text = formatDate(NSDate())
         dateLabel.text = formatDate(date)
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("hideKeyboard:"))
