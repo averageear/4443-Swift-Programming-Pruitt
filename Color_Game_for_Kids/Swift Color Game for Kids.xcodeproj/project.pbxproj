@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35912D9F1B03A5E5000641B5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35912D9E1B03A5E5000641B5 /* Alamofire.swift */; };
 		8514B4CE1A814C0B005F9715 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = 8514B4CD1A814C0B005F9715 /* colors.json */; };
 		8514B53D1A818147005F9715 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8514B53C1A818147005F9715 /* SwiftyJSON.swift */; };
-		8514B5FE1A82F507005F9715 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8514B5FD1A82F507005F9715 /* Alamofire.swift */; };
 		85B054261A7FF98600B60421 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B054251A7FF98600B60421 /* AppDelegate.swift */; };
 		85B054281A7FF98600B60421 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B054271A7FF98600B60421 /* ViewController.swift */; };
 		85B0542B1A7FF98600B60421 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B054291A7FF98600B60421 /* Main.storyboard */; };
@@ -44,9 +44,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		35912D9E1B03A5E5000641B5 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		8514B4CD1A814C0B005F9715 /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
 		8514B53C1A818147005F9715 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		8514B5FD1A82F507005F9715 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = "Swift Color Game for Kids/Alamofire.swift"; sourceTree = "<group>"; };
 		85B054201A7FF98600B60421 /* Swift Color Game for Kids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Color Game for Kids.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85B054241A7FF98600B60421 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85B054251A7FF98600B60421 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		85B054171A7FF98600B60421 = {
 			isa = PBXGroup;
 			children = (
-				8514B5FD1A82F507005F9715 /* Alamofire.swift */,
+				35912D9E1B03A5E5000641B5 /* Alamofire.swift */,
 				8514B53C1A818147005F9715 /* SwiftyJSON.swift */,
 				85B054221A7FF98600B60421 /* Swift Color Game for Kids */,
 				85B054381A7FF98600B60421 /* Swift Color Game for KidsTests */,
@@ -245,7 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8514B53D1A818147005F9715 /* SwiftyJSON.swift in Sources */,
-				8514B5FE1A82F507005F9715 /* Alamofire.swift in Sources */,
+				35912D9F1B03A5E5000641B5 /* Alamofire.swift in Sources */,
 				85B054281A7FF98600B60421 /* ViewController.swift in Sources */,
 				85B054261A7FF98600B60421 /* AppDelegate.swift in Sources */,
 			);

@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-
 
 class ViewController: UIViewController {
     
@@ -52,48 +50,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         matchColorLogic()
-        
-        //Read from a file example:
-        let read : String? = File.read("/Volumes/1_TB_HDD/griffin/Desktop/colors.json")
-        println(read!)
-        
-        //Write to  a file example:
-        let write : Bool = File.write("/Volumes/1_TB_HDD/griffin/Desktop/colors2.json", content: "String to write")
-        println(write)
-        
-        //Setup the url to get colors from
-        let url = "https://raw.githubusercontent.com/rugbyprof/msu-swift/master/Swift%20Color%20Game%20for%20Kids/Swift%20Color%20Game%20for%20Kids/colors.json?token=AA_qiMX6aezCbZRcASGFVWX5IFfGJ2pwks5U2nY9wA%3D%3D"
-
-        //Run alamo library get request to grab the json data
-        Alamofire.request(.GET, url)
-            .responseJSON { (req, res, json, error) in
-                if(error != nil) {
-                    println("Error: \(error)")
-                    println(req)
-                    println(res)
-                }
-                else {
-                    println("Success: \(url)")
-                    var json = JSON(json!)
-                    for (key: String, subJson: JSON) in json {
-                        println(key)
-                    }
-                    
-                    //or
-                    
-                    for (key,val) in json{
-                        println("\(key):\(val)")
-                    }
-                }
-                
-                //Question: How do I access a single value directly?
-        }
-        
-        
-        //Another way to read the json file
-        let json = myJson.getJSON(url)
-        var jsonDict = myJson.parseJSON(json)
-        println("jsonDict")
     }
 
     override func didReceiveMemoryWarning() {
@@ -257,24 +213,6 @@ class File {
     }
 }
 
-/********************************************************************************************
-* Json Helper Class
-* Methods:
-*   getJSON(string) returns NSData
-*   parseJSON(NSData) returns Dictionary
-********************************************************************************************/
-class myJson {
-
-    class func getJSON(urlToRequest: String) -> NSData{
-        return NSData(contentsOfURL: NSURL(string: urlToRequest)!)!
-    }
-
-    class func parseJSON(inputData: NSData) -> NSDictionary{
-        var error: NSError?
-        var boardsDictionary: NSDictionary = NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
-        return boardsDictionary
-    }
-}
 
 
 
