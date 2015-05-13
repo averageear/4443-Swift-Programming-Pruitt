@@ -19,7 +19,7 @@ class SecondViewController: UIViewController {
         let myLocation = (self.tabBarController as CustomTabBarController).currentPoint
         let location = CLLocationCoordinate2D(
             latitude: myLocation.lat,
-            longitude: -myLocation.lon
+            longitude: myLocation.lon
         )
         // 2
         let span = MKCoordinateSpanMake(0.05, 0.05)
